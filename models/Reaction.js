@@ -1,9 +1,8 @@
-const { get } = require("express/lib/response");
 const { Schema, model } = require("mongoose");
 
 const ReactionSchema = new Schema(
   {
-    // Correct?????????????
+    // Correct?
     reactionId: {
       type: Schema.Types.ObjectId,
     },
@@ -26,7 +25,6 @@ const ReactionSchema = new Schema(
   //tell SCHEMA it can use virtuals + getters
   {
     toJSON: {
-      //   virtuals: true,
       getters: true,
     },
     id: false,
