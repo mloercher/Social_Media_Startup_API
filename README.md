@@ -7,7 +7,5 @@ An API for a social media type network. Utilizing MongoDB and Mongoose, this API
 
 ![screenshot-1](./assets/images/1.png)
 ![screenshot-2](./assets/images/2.png)
-![screenshot-3](./assets/images/3.png)
-
 
 ## Demo Video 
