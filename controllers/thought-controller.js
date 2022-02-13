@@ -5,7 +5,7 @@ const thoughtController = {
   getAllThoughts(req, res) {
     Thought.find()
       .populate({
-        path: "reactions",
+        path: "reaction",
         select: "-__v",
       })
       .select("-__v")
