@@ -9,3 +9,4 @@ An API for a social media type network. Utilizing MongoDB and Mongoose, this API
 ![screenshot-2](./assets/images/2.png)
 
 ## Demo Video 
+https://share.vidyard.com/watch/1ZgJ2dq7T5MWKCGChjYrpH?
