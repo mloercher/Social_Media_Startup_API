@@ -8,6 +8,11 @@ router
 .get(getAllThoughts)
 .post(createNewThought)
 
+// /api/thoughts/:thoughtId/reactions
+router
+.route('/:thoughtId/reactions')
+.post(addReaction)
+
 
 // /api/thoughts/:id
 router
@@ -16,10 +21,8 @@ router
 .put(updateThoughtById)
 .delete(deleteThoughtById)
 
-// /api/thoughts/:thoughtId/reactions
 router
-.route('/:thoughtId/reactions')
-.post(addReaction)
+.route('/:thoughtId/reactions/:reactionId')
 .delete(deleteReaction)
 
 

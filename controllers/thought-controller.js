@@ -4,10 +4,10 @@ const thoughtController = {
   // get ALL thoughts
   getAllThoughts(req, res) {
     Thought.find()
-      .populate({
-        path: "reaction",
-        select: "-__v",
-      })
+    //   .populate({
+    //     path: "reaction",
+    //     select: "-__v",
+    //   })
       .select("-__v")
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => {
@@ -67,10 +67,11 @@ const thoughtController = {
   },
 
   // add REACTION to THOUGHT
-  addReaction({ params }, res) {
+  addReaction({ params, body }, res) {
+    //   console.log("HERE")
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
-      { $push: { reactions: params.reactionId } },
+      { $push: { reactions: body} },
       { new: true }
     )
       .then((dbThoughtData) => {
@@ -87,7 +88,10 @@ const thoughtController = {
   deleteReaction({ params }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
-      { $pull: { reactions: params.reactionId } },
+      { $pull: { 
+          reactions: { reactionId: params.reactionId } 
+        } 
+        },
       { new: true }
     )
       .then((dbThoughtData) => {
@@ -99,6 +103,7 @@ const thoughtController = {
       })
       .catch((err) => res.status(400).json(err));
   },
+ //   update REACTION
 };
 
 module.exports = thoughtController;

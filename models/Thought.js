@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
+const ReactionSchema = require('./Reaction');
+
 
 const ThoughtSchema = new Schema(
   {
@@ -20,11 +22,14 @@ const ThoughtSchema = new Schema(
       required: true,
     },
     //Array of nested documents created with the reactionSchema
+    // reactions: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Reaction",
+    //   },
+    // ],
     reactions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Reaction",
-      },
+      ReactionSchema
     ],
   },
   //tell SCHEMA it can use virtuals + getters
